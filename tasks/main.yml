@@ -1,0 +1,22 @@
+---
+- name: Install nscd package
+  tags: nscd
+  yum: name=nscd
+       state=present
+       update_cache=yes
+  register: nscd_yum
+
+- block:
+    - name: Configure nscd.conf
+      template: src=nscd.conf.j2
+                dest=/etc/nscd.conf
+                owner=root
+                group=root
+                mode=0644
+      notify: restart nscd
+    - name: Enable and start nscd
+      service: name=nscd
+               enabled=yes
+               state=started
+  tags: nscd
+  when: nscd_yum|success
