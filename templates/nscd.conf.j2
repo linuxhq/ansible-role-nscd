@@ -70,7 +70,7 @@
 	max-db-size		hosts		{{ nscd_hosts_max_db_size if nscd_hosts_max_db_size is defined else '33554432' }}
 	auto-propagate		hosts		{{ 'yes' if nscd_hosts_auto_propagate is defined and nscd_hosts_auto_propagate else 'no' }}
 
-	enable-cache		services	{{ 'yes' if nscd_services_enable_cache is defined and nscd_services_enable_cache lse 'no' }}
+	enable-cache		services	{{ 'yes' if nscd_services_enable_cache is defined and nscd_services_enable_cache else 'no' }}
 	positive-time-to-live	services	{{ nscd_services_positive_time_to_live if nscd_services_positive_time_to_live is defined else '28800' }}
 	negative-time-to-live	services	{{ nscd_services_negative_time_to_live if nscd_services_negative_time_to_live is defined else '20' }}
 	suggested-size		services	{{ nscd_services_suggested_size if nscd_services_suggested_size is defined else '211' }}
