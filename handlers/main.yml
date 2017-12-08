@@ -1,6 +1,7 @@
 ---
 - name: restart nscd
   tags: nscd
+  become: true
   service:
     name: nscd
     state: restarted

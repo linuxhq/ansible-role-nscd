@@ -1,6 +1,7 @@
 ---
 - name: Ensure that the nscd package is installed
   tags: nscd
+  become: true
   yum:
     name: nscd
     state: present
@@ -8,7 +9,7 @@
   register: nscd_yum
 
 - block:
-    - name: Applying the nscd.conf configuration
+    - name: Applying nscd.conf configurations
       template:
         src: nscd.conf.j2
         dest: /etc/nscd.conf
@@ -17,11 +18,12 @@
         mode: 0644
       notify: restart nscd
 
-    - name: Enable and start the nscd service
+    - name: Enable and start the nscd service on boot
       service:
         enabled: yes
         name: nscd
         state: started
   tags: nscd
+  become: true
   when: nscd_yum|success
 ...
