@@ -30,7 +30,6 @@ Available variables are listed below, along with default values:
     nscd_group_positive_time_to_live: 3600
     nscd_group_shared: True
     nscd_group_suggested_size: 211
-    nscd_hosts_auto_propagate: True
     nscd_hosts_check_files: True
     nscd_hosts_enable_cache: True
     nscd_hosts_max_db_size: 33554432
@@ -39,7 +38,6 @@ Available variables are listed below, along with default values:
     nscd_hosts_positive_time_to_live: 3600
     nscd_hosts_shared: True
     nscd_hosts_suggested_size: 211
-    nscd_netgroup_auto_propagate: True
     nscd_netgroup_check_files: True
     nscd_netgroup_enable_cache: True
     nscd_netgroup_max_db_size: 33554432
@@ -57,7 +55,6 @@ Available variables are listed below, along with default values:
     nscd_passwd_positive_time_to_live: 600
     nscd_passwd_shared: True
     nscd_passwd_suggested_size: 211
-    nscd_services_auto_propagate: True
     nscd_services_check_files: True
     nscd_services_enable_cache: True
     nscd_services_max_db_size: 33554432

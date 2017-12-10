@@ -68,7 +68,6 @@
 	persistent		hosts		{{ 'yes' if nscd_hosts_persistent is defined and nscd_hosts_persistent else 'no' }}
 	shared			hosts		{{ 'yes' if nscd_hosts_shared is defined and nscd_hosts_shared else 'no' }}
 	max-db-size		hosts		{{ nscd_hosts_max_db_size }}
-	auto-propagate		hosts		{{ 'yes' if nscd_hosts_auto_propagate is defined and nscd_hosts_auto_propagate else 'no' }}
 
 	enable-cache		services	{{ 'yes' if nscd_services_enable_cache is defined and nscd_services_enable_cache else 'no' }}
 	positive-time-to-live	services	{{ nscd_services_positive_time_to_live }}
@@ -78,7 +77,6 @@
 	persistent		services	{{ 'yes' if nscd_services_persistent is defined and nscd_services_persistent else 'no' }}
 	shared			services	{{ 'yes' if nscd_services_shared is defined and nscd_services_shared else 'no' }}
 	max-db-size		services	{{ nscd_services_max_db_size }}
-	auto-propagate		services	{{ 'yes' if nscd_services_auto_propagate is defined and nscd_services_auto_propagate else 'no' }}
 
 	enable-cache		netgroup	{{ 'yes' if nscd_netgroup_enable_cache is defined and nscd_netgroup_enable_cache else 'no' }}
 	positive-time-to-live	netgroup	{{ nscd_netgroup_positive_time_to_live }}
@@ -88,4 +86,3 @@
 	persistent		netgroup	{{ 'yes' if nscd_netgroup_persistent is defined and nscd_netgroup_persistent else 'no' }}
 	shared			netgroup	{{ 'yes' if nscd_netgroup_shared is defined and nscd_netgroup_shared else 'no' }}
 	max-db-size		netgroup	{{ nscd_netgroup_max_db_size }}
-	auto-propagate		netgroup	{{ 'yes' if nscd_netgroup_auto_propagate is defined and nscd_netgroup_auto_propagate else 'no' }}
