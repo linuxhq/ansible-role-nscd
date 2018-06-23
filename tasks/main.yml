@@ -5,25 +5,26 @@
   yum:
     name: nscd
     state: present
-    update_cache: yes
   register: nscd_yum
 
-- block:
-    - name: Applying nscd.conf configurations
-      template:
-        src: nscd.conf.j2
-        dest: /etc/nscd.conf
-        owner: root
-        group: root
-        mode: 0644
-      notify: restart nscd
-
-    - name: Enable and start the nscd service on boot
-      service:
-        enabled: yes
-        name: nscd
-        state: started
+- name: Attempting to overlay nscd configurations
   tags: nscd
   become: true
-  when: nscd_yum|success
+  template:
+    src: nscd.conf.j2
+    dest: /etc/nscd.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart nscd
+  when: nscd_yum is success
+
+- name: Ensure that nscd is started and enabled on boot
+  tags: nscd
+  become: true
+  service:
+    enabled: yes
+    name: nscd
+    state: started
+  when: nscd_yum is success
 ...
