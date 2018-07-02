@@ -1,6 +1,7 @@
 ---
 dependencies: []
 galaxy_info:
+  role_name: nscd
   author: tkimball83
   description: RHEL/CentOS - Name service cache daemon
   license: GPLv3
